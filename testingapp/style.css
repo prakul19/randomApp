@@ -1,78 +1,115 @@
-/* style.css */
-/* Full-page pink background with centered content */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+:root {
+  --bg: #ffe4e1;        /* misty rose */
+  --primary: #ff1493;   /* deep pink */
+  --accent: #ff69b4;    /* hot pink */
+  --white: #fff;
+  --toast-bg: rgba(0,0,0,0.6);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
-    background: #ffe4e1; /* Misty rose pink */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Pacifico', cursive;
-    user-select: none;
-    position: relative;
-    overflow: hidden;
+  background: var(--bg);
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  overflow: hidden;
 }
 
-/* Clickable box styling */
-#clickBox {
-    width: 60vw;
-    height: 60vw;
-    max-width: 250px;
-    max-height: 250px;
-    background: #ffffff;
-    border: 2px solid #ff69b4;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ff1493;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-#clickBox:hover {
-    transform: scale(1.05);
-    background-color: #ffe4e1;
+/* Hide the audio player UI */
+#audio, #bgAudio {
+  display: none;
 }
 
-/* Heart shape styling and animation */
-.heart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #ff1493;
-    transform: rotate(-45deg);
-    opacity: 1;
-    animation: floatUp 2s ease-out forwards;
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  color: var(--primary);
+  text-align: center;
 }
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #ff1493;
-    border-radius: 50%;
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  transition: transform .2s, background .2s;
 }
-.heart::before {
-    top: -10px;
-    left: 0;
+button:hover {
+  transform: scale(1.05);
 }
-.heart::after {
-    left: 10px;
-    top: 0;
+.btn-accent {
+  background: var(--accent);
+  color: var(--white);
 }
-@keyframes floatUp {
-    0% {
-        opacity: 1;
-        transform: translate(0, 0) rotate(-45deg) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50px, -150px) rotate(-45deg) scale(2);
-    }
+.btn-accent:hover {
+  background: var(--primary);
+}
+.btn-outline {
+  background: var(--white);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.screen {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%; max-width: 400px;
+  text-align: center;
+  opacity: 1;
+  transition: opacity .4s ease;
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toast {
+  position: fixed;
+  top: 20px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--toast-bg);
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+  z-index: 10;
+}
+.toast.show {
+  opacity: 1;
+}
+
+#options {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.final-msg {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* New styling for the shayari */
+.shayari {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #800040;
+  line-height: 1.4;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  h1 { font-size: 2rem; }
+  button { font-size: 0.9rem; }
 }
