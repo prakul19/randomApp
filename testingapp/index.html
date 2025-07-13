@@ -1,23 +1,52 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Sweet Surprise</title>
-    <!-- Google Font for cursive style -->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz for Shreya 💖</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Clickable box -->
-    <div id="clickBox">Click me!</div>
 
-    <!-- Audio for pop sound (base64-encoded short pop tone) -->
-    <audio id="popSound" preload="auto">
-        <source src="data:audio/wav;base64,UklGRgxFAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YehEAAAAAB8Q+R9QL+Q9fUvkV+ZiWWwWdP95/H3/f/5//H0AgcGBgMDAQEB/f/8AgICAgP/fwICAgP+//z8/Pv7+/v///wMDAwICAf79/f7+/v7+/v39/ebm5ujo6P///gICAgICAgMDP+AAD+/f//+P8A+g0JAQIDAgMCAgICAgICAgICAgICAgICAgICAgICAgICAgICAuJQQFBgQDAwEA" type="audio/wav" />
-    </audio>
+  <!-- Background music (hidden) -->
+  <audio id="bgAudio" src="tum-se-hi.mp3" loop></audio>
 
-    <script src="script.js"></script>
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Toast for sweet corrections -->
+  <div id="toast" class="toast"></div>
+
+  <!-- 1) Intro Screen -->
+  <div id="intro" class="screen">
+    <h1>Let's Take a Quiz!</h1>
+    <p>Answer these fun questions about us ❤️</p>
+    <button id="startBtn" class="btn-accent">Start Quiz</button>
+  </div>
+
+  <!-- 2) Quiz Screen -->
+  <div id="quiz" class="screen hidden">
+    <h2 id="qText"></h2>
+    <div id="options"></div>
+  </div>
+
+  <!-- 3) Final Screen -->
+  <div id="final" class="screen hidden">
+    <h1>You did it! 🎉</h1>
+    <p class="final-msg">I love you, Shreya ❤️</p>
+    <!-- Shayari at the end -->
+    <div class="shayari">
+      <p>In your smile I find my sunrise,</p>
+      <p>Your laughter lifts me sky‑high.</p>
+      <p>Three years back you walked into my song,</p>
+      <p>Since then every beat’s felt right.</p>
+    </div>
+  </div>
+
+  <!-- Canvas‑Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
